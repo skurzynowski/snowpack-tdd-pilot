@@ -8,7 +8,10 @@
   },
   "dependencies": {
     "react": "^17.0.2",
-    "react-dom": "^17.0.2"
+    "react-dom": "^17.0.2",
+    "lodash": "4.17.21",
+    "mobx": "6.6.1",
+    "mobx-react-lite": "3.4.0"
   },
   "devDependencies": {
     "@snowpack/plugin-dotenv": "^2.1.0",
