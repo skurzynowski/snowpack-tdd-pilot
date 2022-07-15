@@ -1,17 +1,18 @@
-import { ConcentrationGame } from './ConcentrationGame';
+import { HomeController } from './HomeView';
 import { expect } from 'chai';
 import type { IRequest} from '../../types/Interfaces/Request';
 
 describe('ConcentrationGame', () => {
     it('should initialize', () => {
-        expect(() => new ConcentrationGame()).to.not.throw();
+        expect(() => new HomeController()).to.not.throw();
     })
 
     it('should handle startGame event', () => {
-        const controler = new ConcentrationGame();
+        const controler = new HomeController();
         const request: IRequest = {
            url: '/start-game',
-           parameters: {}
+           parameters: {},
+           name: "Test"
         };
         const result = controler.startGame( request )
    

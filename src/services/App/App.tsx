@@ -1,13 +1,16 @@
-import type React from "react";
-import { View } from "../../models/View/View";
+import { inject, injectable } from "inversify";
+import { TYPES } from "../DiContainer/types";
+import type { IApp } from "../../types/Interfaces/App";
+import type { InteractorFactory } from "../Interactor/InteractorFactory";
 import type { IView } from "../../types/Interfaces/View";
-import { Home, IHome } from "../../views/home/Home"
 
+@injectable()
+export class App implements IApp{
+    view: IView;
 
-const view = new View<IHome>({path: '/home', component: Home});
+    @inject(TYPES.InteractorFactory) private _interactorFactory: InteractorFactory;
 
-export class App {
-    view: IView<IHome> =  view;
+    init(){
+        this.view = this._interactorFactory.createHomeModuleInteractor().view
+    }
 }
-
-export const singletonApp = new App();

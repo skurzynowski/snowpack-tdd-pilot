@@ -1,5 +1,8 @@
 {
-  "include": ["src", "types"],
+  "include": [
+    "src",
+    "types"
+  ],
   "compilerOptions": {
     "module": "esnext",
     "target": "esnext",
@@ -18,10 +21,20 @@
     /* Additional Options */
     "strict": true,
     "skipLibCheck": true,
-    "types": ["mocha", "snowpack-env"],
+    "types": [
+      "mocha",
+      "snowpack-env"
+    ],
     "forceConsistentCasingInFileNames": true,
     "resolveJsonModule": true,
     "allowSyntheticDefaultImports": true,
-    "importsNotUsedAsValues": "error"
+    "importsNotUsedAsValues": "error",
+    //added for inversify
+    // "lib": [
+    //   "es6"
+    // ],
+    "strictPropertyInitialization": false,
+    "experimentalDecorators": true,
+    "emitDecoratorMetadata": true
   }
 }
