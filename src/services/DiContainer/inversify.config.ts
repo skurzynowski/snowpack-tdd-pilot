@@ -6,9 +6,9 @@ import { App } from "../App/App";
 import { HomeView } from "../../models/HomeView/HomeView";
 import { ViewFactory } from "../ViewFactory/ViewFactory";
 import { Home } from "../../views/home/Home";
-import { InteractorFactory } from "../Interactor/InteractorFactory";
-import { HomeInteractor } from "../../interactors/HomeInteractor/HomeInteractor";
-import type { IInteractor } from "../../types/Interfaces/Interactor";
+import { RepresenterFactory } from "../Representer/RepresenterFactory";
+import { HomeRepresenter } from "../../representers/HomeRepresenter/HomeRepresenter";
+import type { Representer } from "../../types/Interfaces/Representer";
 import { HomeController } from "../../controlers/HomeView/HomeView";
 
 const myContainer = new Container();
@@ -21,9 +21,9 @@ myContainer.bind<string>(TYPES.HomeRoute).toConstantValue('/home');
 
 //FACTORY
 myContainer.bind<ViewFactory>(TYPES.ViewFactory).to(ViewFactory)
-myContainer.bind<InteractorFactory>(TYPES.InteractorFactory).to(InteractorFactory)
+myContainer.bind<RepresenterFactory>(TYPES.RepresenterFactory).to(RepresenterFactory)
 
-myContainer.bind<IInteractor>(TYPES.HomeInteractor).to(HomeInteractor);
+myContainer.bind<HomeRepresenter>(TYPES.HomeRepresenter).to(HomeRepresenter).inSingletonScope();
 myContainer.bind<HomeController>(TYPES.HomeController).to(HomeController)
 
 

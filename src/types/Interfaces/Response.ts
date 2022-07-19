@@ -1,5 +1,5 @@
 export interface IResponse {
-    parameters: string;
+    parameters?: Record<string,any>;
     name: string;
     id?: string;
 }

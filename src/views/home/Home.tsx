@@ -1,19 +1,15 @@
 import { observer } from "mobx-react-lite";
-import React, { useEffect, useState } from "react";
-import type { IApp } from "src/types/Interfaces/App";
-import type { HomeInteractor } from "../../interactors/HomeInteractor/HomeInteractor";
-import { myContainer, TYPES } from "../../services/DiContainer/inversify.config";
+import React, { useState } from "react";
+import type { HomeRepresenter } from "../../representers/HomeRepresenter/HomeRepresenter";
+import { Header } from "./Header/Header";
 
-// export type IHome = React.FC<string>;
-
-export const Home = observer(() => {
-    const [interactor, setInteractor] = useState({ title: "test" })
-
-    useEffect(() => {
-        setInteractor(myContainer.get<HomeInteractor>(TYPES.HomeInteractor));
-    }, [])
-
-    return (<section>{interactor.title}
-        <button onClick={() => { interactor.title = "New title" }}>Click to change text</button>
-    </section>)
+export const Home: React.FC<{ store: HomeRepresenter }> = observer(({ store }) => {
+console.log(store.counter)
+    return (
+        <section>
+            <Header />
+            <button onClick={() => { store.request({ name: "UPDATE_COUNTER" }) }}>Click to change text</button>
+            <button onClick={() => { store.counter++ }}>Counter</button>
+        </section>
+    )
 })

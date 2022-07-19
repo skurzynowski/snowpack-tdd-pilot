@@ -3,6 +3,7 @@ import { TYPES } from "../../services/DiContainer/types";
 import type { IView, IViewProps } from "../../types/Interfaces/View";
 import type React from "react";
 import type { IResponse } from "src/types/Interfaces/Response";
+import type { PageView } from "../../types/Interfaces/PageView";
 
 @injectable()
 export class HomeView implements IView {
@@ -20,9 +21,5 @@ export class HomeView implements IView {
 
     getComponent(): React.FC {
         return this._component;
-    }
-
-    update(res: IResponse): void {
-        
     }
 }

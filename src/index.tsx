@@ -1,15 +1,15 @@
 import React from 'react';
 import ReactDOM from 'react-dom';
 import './index.css';
+import type { App } from './services/App/App';
 import { myContainer, TYPES } from './services/DiContainer/inversify.config'
-import type { IApp } from './types/Interfaces/App';
 
-const app = myContainer.get<IApp>(TYPES.App);
+const app = myContainer.get<App>(TYPES.App);
 app.init();
 
 ReactDOM.render(
   <React.StrictMode>
-    {React.createElement(app.view.getComponent())}
+    {React.createElement<{store: App['store']}>(app.view.getComponent(),{ store: app.store })}
   </React.StrictMode>,
   document.getElementById('root'),
 );

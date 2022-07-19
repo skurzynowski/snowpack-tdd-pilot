@@ -6,8 +6,8 @@ const TYPES = {
     HomeRoute: Symbol.for("HomeRoute"),
     ViewFactory: Symbol.for("ViewFactory"),
     HomeComponent: Symbol.for("HomeComponent"),
-    HomeInteractor: Symbol.for("HomeInteractor"),
-    InteractorFactory: Symbol.for("InteractorFactory"),
+    HomeRepresenter: Symbol.for("HomeRepresenter"),
+    RepresenterFactory: Symbol.for("RepresenterFactory"),
     HomeController: Symbol.for("HomeController"),
 };
 
